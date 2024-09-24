@@ -19,6 +19,7 @@ const windowHeaderStyle = {
   borderRadius: '1px',
   borderBottom: '1px solid black',
   boxShadow: 'inset 5px 5px 10px rgba(0, 0, 0, 0.1)',
+  height: '20px' // Définir une hauteur fixe pour l'en-tête
 };
 
 export default function Window(
@@ -47,6 +48,7 @@ export default function Window(
       display: 'flex',
       flexDirection: 'column',
       borderRadius: '3px',
+      height: 'calc(100% - 20px)' // Calculer la hauteur en soustrayant la hauteur de l'en-tête
     };
 
     return (
@@ -55,8 +57,8 @@ export default function Window(
           <span>{title}</span>
           <button style={{border: "none", backgroundColor: "transparent"}} onClick={handleMaximize}>
             {maximized ?
-              <img src={ReduceIcon} alt="Reduce" style={resizeIconStyle} /> : 
-              <img src={MaximizeIcon} alt="Maximize" style={resizeIconStyle} />}
+              <img src={MaximizeIcon} alt="Reduce" style={resizeIconStyle} /> : 
+              <img src={ReduceIcon} alt="Maximize" style={resizeIconStyle} />}
           </button>
         </div>
         <div className="window-body" style={windowBodyStyle}>{children}</div> 
