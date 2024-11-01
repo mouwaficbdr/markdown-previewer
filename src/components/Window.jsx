@@ -19,7 +19,7 @@ const windowHeaderStyle = {
   borderRadius: '1px',
   borderBottom: '1px solid black',
   boxShadow: 'inset 5px 5px 10px rgba(0, 0, 0, 0.1)',
-  height: '20px' // Définir une hauteur fixe pour l'en-tête
+  height: '20px',
 };
 
 export default function Window(
