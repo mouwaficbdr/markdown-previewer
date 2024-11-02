@@ -1,4 +1,4 @@
-import Markdown from 'marked-react';
+import { marked } from 'marked';
 import Window from './Window';
 
 export default function Previewer({
@@ -6,18 +6,15 @@ export default function Previewer({
   handlePreviewerMaximize,
   editorContent
 }) {
+  const htmlContent = marked(editorContent);
+
   return (
     <Window title="Previewer"
       maximized={previewerIsMaximized}
       handleMaximize={handlePreviewerMaximize}
       width='600px'
     >
-      <div id="preview">
-        <Markdown>
-          {editorContent}
-        </Markdown>
-      </div>
-      
+      <div id="preview" dangerouslySetInnerHTML={{ __html: htmlContent }} />
     </Window>
   );
 }
